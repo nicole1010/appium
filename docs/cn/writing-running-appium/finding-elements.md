@@ -9,9 +9,9 @@ Appium 支持 WebDriver 定位策略的子集：
 
 Appium 还额外支持部分 [Mobile JSON Wire Protocol](https://github.com/SeleniumHQ/mobile-spec/blob/master/spec-draft.md) 的定位策略。
 
-* `-ios predicate string`：相当于使用 [iOS Predicate](/docs/cn/writing-running-appium/ios/ios-predicate.md) 去递归地搜索元素（iOS 10.0 及以上版本）
+* `-ios predicate string`：相当于使用 [iOS Predicate](/docs/en/writing-running-appium/ios/ios-predicate.md) 去递归地搜索元素(iOS 10.0 及以上版本)
     * `-ios uiautomation` 用于 iOS 9.3 及以下版本
-* `-android uiautomator`：相当于使用 [UiAutomator Api](/docs/cn/writing-running-appium/android/uiautomator-uiselector.md) 去递归地搜索元素（Android 专属）
+* `-android uiautomator`：相当于使用 [UiAutomator Api](/docs/en/writing-running-appium/android/uiautomator-uiselector.md) 去递归地搜索元素(Android 专属）
 * `-android datamatcher`：相当于一个 [Espresso DataMatcher json](/docs/en/writing-running-appium/android/espresso-datamatcher-selector.md) (Android 专属)
 * `accessibility id`：该字符串相当于利用原生的可访问性（Accessibility）选项，使用 Id / Name 去递归地搜索元素。
 
@@ -45,10 +45,5 @@ Appium Desktop 有一个简洁的布局，由源代码树、屏幕截图、记�
 ### REPL
 [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) 是一个简单的交互式语言外壳。你可以交互式地调用各种命令。它将帮助你确保场景与 Appium 服务器交互。
 
----
-EOF.
-
-本文由 [thanksdanny](https://testerhome.com/thanksdanny) 翻译。由 [lihuazhang](https://github.com/lihuazhang) 校验。
-
-翻译：@[Pandorym](https://github.com/Pandorym)
-Last english version: 438d6c3b38e785edc701354cf660aa9f76baceaf, Apr 11, 2019
+- [Appium Ruby Console](https://github.com/appium/ruby_console)
+- [WebDriverIO with debug mode](https://webdriver.io/docs/api/browser/debug.html)
