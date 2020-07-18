@@ -3,7 +3,6 @@
 
 ## 样例
 
-
 ```java
 // Java
 MobileElement element = (MobileElement) driver.findElementByAccessibilityId("SomeAccessibilityID");
