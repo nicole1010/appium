@@ -51,7 +51,7 @@ $driver->installApp('/Users/johndoe/path/to/app.apk');
 
 ## 说明
 
-使用XCUITest的iOS测试也可以使用`mobile: installApp` 方法. 详见 [文档](/docs/cn/writing-running-appium/ios/ios-xctest-mobile-apps-management.md#mobile-installapp).
+使用XCUITest的iOS测试也可以使用`mobile: installApp` 方法。 详见 [文档](/docs/cn/writing-running-appium/ios/ios-xctest-mobile-apps-management.md#mobile-installapp)。
 
 
 

@@ -52,7 +52,7 @@ $driver->isAppInstalled('com.example.AppName')
 
 ## 描述
 
-使用XCUITest的iOS测试也可以使用`mobile: isAppInstalled` 方法. 详见[文档](/docs/cn/writing-running-appium/ios/ios-xctest-mobile-apps-management.md#mobile-isappinstalled).
+使用XCUITest的iOS测试也可以使用`mobile: isAppInstalled` 方法。 详见[文档](/docs/cn/writing-running-appium/ios/ios-xctest-mobile-apps-management.md#mobile-isappinstalled)。
 
 
 ## 支持

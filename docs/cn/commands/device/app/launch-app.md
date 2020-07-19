@@ -53,7 +53,7 @@ $driver->launchApp();
 ## 描述
 
 如果被测应用（AUT）已关闭或在后台运行，它将启动它。如果AUT已打开，它将使其放到后台并重新启动。
-使用XCUITest的iOS测试也可以使用“ mobile：launchApp”方法。详见[文档](/docs/cn/writing-running-appium/ios/ios-xctest-mobile-apps-management.md#mobile-launchapp).
+使用XCUITest的iOS测试也可以使用“ mobile：launchApp”方法。详见[文档](/docs/cn/writing-running-appium/ios/ios-xctest-mobile-apps-management.md#mobile-launchapp)。
 
 
 

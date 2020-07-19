@@ -52,7 +52,7 @@ $driver->removeApp('com.example.AppName');
 
 ## 描述
 
-使用XCUITest的iOS测试也可以使用“ mobile：removeApp”方法。 详见 [文档]](/docs/cn/writing-running-appium/ios/ios-xctest-mobile-apps-management.md#mobile-removeapp).
+使用XCUITest的iOS测试也可以使用“ mobile：removeApp”方法。 详见 [文档]](/docs/cn/writing-running-appium/ios/ios-xctest-mobile-apps-management.md#mobile-removeapp)。
 
 
 
@@ -120,5 +120,5 @@ null
 ---
 EOF.
 
-本文由 [zhangfeng](https://github.com/zhangfeng91)翻译，Last english version: a11f693bbe2bcf2e47fa6a40872a7580ab45d6bb, 6 Jun 2020
+本文由 [zhangfeng](https://github.com/zhangfeng91)翻译， Last english version: a11f693bbe2bcf2e47fa6a40872a7580ab45d6bb, 6 Jun 2020
 
