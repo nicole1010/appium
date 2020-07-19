@@ -86,9 +86,9 @@ string tagName = element.GetAttribute("content-desc");
 
 |名称|描述|
 |----|-----------|
-|session_id|ID of the session to route the command to|
-|element_id|ID of the element to get the attribute from|
-|name|The name of the attribute|
+|session_id|发送命令用来会话的id|
+|element_id|从中获取元素属性的id|
+|name|属性名称|
 
 ### JSON 参数
 
