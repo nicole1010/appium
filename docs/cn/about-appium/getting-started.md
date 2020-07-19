@@ -52,13 +52,13 @@ npm install -g appium
 appium
 ```
 
-或者是点击Appium客户端页面上比较显眼的启动服务端按钮。
+或者是点击Appium客户端页面上比较显眼的启动按钮。
 
 Appium启动成功后将会向你展示一段简短的欢迎消息，其中包含了你目前所使用的Appium版本号和正在监听的端口号（默认使用`4723`）。该监听端口信息很重要，因为你需要确认测试客户端能通过该端口号顺利连接上Appium。如果你想要修改默认端口号，你可以在启动Appium时通过使用`-p`选项进行端口的设置（请确认已经查看过完整的[服务端参数列表](/docs/cn/writing-running-appium/server-args.md)文档）
 
 ### 运行你的第一个测试用例
 
-在该部分，我们将会运行一个简单的“Hello World”安卓测试用例。之所以选择安卓是因为它在所有平台上都能运行。同时，我们将使用[UiAutomator2 driver](/docs/cn/drivers/android-uiautomator2.md)，所以请确保你已经通读过相关文档并且系统已经具备所需的环境。本次将使用JavaScript作为开发语言，以便于不需要再使用到其他的依赖组件。
+在该部分，我们将会运行一个简单的“Hello World”Android测试用例。之所以选择Android是因为它在所有平台上都能运行。同时，我们将使用[UiAutomator2 driver](/docs/cn/drivers/android-uiautomator2.md)，所以请确保你已经通读过相关文档并且系统已经具备所需的环境。本次将使用JavaScript作为开发语言，以便于不需要再使用到其他的依赖组件。
 
 （有可能你最终想进行自动化测试的平台并非Android，使用的编程语言也并非JavaScript。对于这种情况，可以查看[代码示例](https://github.com/appium/appium/tree/master/sample-code)文档, 其中包含了不同编程语言及运行平台的代码示例。）
 ）
