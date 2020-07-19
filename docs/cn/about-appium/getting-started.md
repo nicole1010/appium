@@ -58,7 +58,7 @@ Appium启动成功后将会向你展示一段简短的欢迎消息，其中包�
 
 ### 运行你的第一个测试用例
 
-在该部分，我们将会运行一个简单的“Hello World”安卓测试用例。之所以选择安卓是因为它在所有平台上都能运行。同时，我们将使用[UiAutomator2 驱动](/docs/cn/drivers/android-uiautomator2.md)，所以请确保你已经通读过相关文档并且系统已经具备所需的环境。本次将使用JavaScript作为开发语言，以便于不需要再使用到其他的依赖组件。
+在该部分，我们将会运行一个简单的“Hello World”安卓测试用例。之所以选择安卓是因为它在所有平台上都能运行。同时，我们将使用[UiAutomator2 driver](/docs/cn/drivers/android-uiautomator2.md)，所以请确保你已经通读过相关文档并且系统已经具备所需的环境。本次将使用JavaScript作为开发语言，以便于不需要再使用到其他的依赖组件。
 
 （有可能你最终想进行自动化测试的平台并非Android，使用的编程语言也并非JavaScript。对于这种情况，可以查看[代码示例](https://github.com/appium/appium/tree/master/sample-code)文档, 其中包含了不同编程语言及运行平台的代码示例。）
 ）
@@ -89,7 +89,7 @@ const wdio = require("webdriverio");
 ```
 
 接下来我们需要做的则是启动一个Appium会话。通过定义一系列的服务选项和参数配置，并使用`wdio.remote()`方法来进行调用。这里所讲的参数配置其实仅仅是一些在会话初始化之后，发送至Appium服务端，告诉Appium我们想要进行哪些自动化操作的键值对。
-对于任意Appium驱动来说，至少应该包含以下这几个配置：
+对于任意Appium driver来说，至少应该包含以下这几个配置：
 - `platformName`: 需要进行自动化操作的平台名称 
 - `platformVersion`: 需要进行自动化操作的平台版本
 - `deviceName`: 需要进行自动化的设备
