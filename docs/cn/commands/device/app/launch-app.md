@@ -76,7 +76,7 @@ $driver->launchApp();
 
 ### Appium客户端
 
-|语言|支持|文档|
+|语言|支持版本|文档|
 |--------|-------|-------------|
 |[Java](https://github.com/appium/java-client/releases/latest)| All | [appium.github.io](https://appium.github.io/java-client/io/appium/java_client/InteractsWithApps.html#launchApp--) |
 |[Python](https://github.com/appium/python-client/releases/latest)| All | [github.com](https://github.com/appium/python-client/blob/master/README.md#closing-and-launching-an-application) |
