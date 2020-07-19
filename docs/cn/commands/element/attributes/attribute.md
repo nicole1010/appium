@@ -24,7 +24,6 @@ let attribute = $("~SomeAccessibilityId").getAttribute("content-desc");
 // wd example
 let element = await driver.elementByAccessibilityId("SomeAccessibilityID");
 let tagName = await element.getAttribute("content-desc");
-
 ```
 
 ```ruby
