@@ -54,7 +54,7 @@ string tagName = element.GetAttribute("content-desc");
 ## 支持
 
 ### Appium Server
-|Platform|Driver|Platform Versions|Appium Version|Driver Version|
+|平台|Driver|平台版本|Appium版本|Driver版本|
 |--------|----------------|------|--------------|--------------|
 | iOS | [XCUITest](/docs/en/drivers/ios-xcuitest.md) | 9.3+ | 1.6.0+ | All |
 |  | [UIAutomation](/docs/en/drivers/ios-uiautomation.md) | 8.0 to 9.3 | All | All |
@@ -66,7 +66,7 @@ string tagName = element.GetAttribute("content-desc");
 
 ### Appium Clients
 
-|Language|Support|Documentation|
+|语言|支持|文档|
 |--------|-------|-------------|
 |[Java](https://github.com/appium/java-client/releases/latest)| All | [seleniumhq.github.io](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebElement.html#getAttribute) |
 |[Python](https://github.com/appium/python-client/releases/latest)| All | [selenium-python.readthedocs.io](http://selenium-python.readthedocs.io/api.html#selenium.webdriver.remote.webelement.WebElement.get_attribute) |
@@ -85,7 +85,7 @@ string tagName = element.GetAttribute("content-desc");
 
 ### URL参数
 
-|name|description|
+|名称|描述|
 |----|-----------|
 |session_id|ID of the session to route the command to|
 |element_id|ID of the element to get the attribute from|
