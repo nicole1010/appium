@@ -9,7 +9,7 @@ Appium可以通过以下两种方式中的任意一种进行安装：使用[NPM]
 
 #### 使用NPM命令进行appium安装
 
-如果你想使用`npm install`命令安装appium，或者是改造appium，亦或者是提交代码为appium做贡献，你都需要安装[Node.js和NPM](http://nodejs.org)（使用[nvm](https://github.com/creationix/nvm),[n](https://github.com/visionmedia/n)命令，或者是`brew install node`命令来安装node.js。请确认你没有使用`sudo`命令进行Node或者Appium的安装，否则运行时会出现问题）尽管Appium支持Node10及以上版本，我们仍然推荐使用最新稳定版。
+如果你想使用`npm install`命令安装appium，或者是改造appium，亦或是提交代码为appium做贡献，你都需要安装[Node.js和NPM](http://nodejs.org)（使用[nvm](https://github.com/creationix/nvm),[n](https://github.com/visionmedia/n)命令，或者是`brew install node`命令来安装node.js。请确认你没有使用`sudo`命令进行Node或者Appium的安装，否则运行时会出现问题）尽管Appium支持Node10及以上版本，我们仍然推荐使用最新稳定版。
 事实上Appium的安装直接使用如下命令即可：
 ```
 npm install -g appium
