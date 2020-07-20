@@ -1,6 +1,6 @@
 ## Appium 服务器初始化参数（Capability）
 
-初始化参数（Capability）是JSON数据类型编码的键和值，当一个新的自动化会话被请求时，Appium客户端发送此参数到服务端。此参数传递到Appium驱动程序有关您想要的各种重要事项测试工作。每种客户端语言都有特定的Appium客户端构建参数，但最终，他们以JSON数据发送到Appium。
+初始化参数（Capability）是JSON数据类型编码的键和值，当一个新的自动化会话被请求时，Appium客户端发送此参数到服务端。此参数传递到Appium drivers有关您想要的各种重要事项测试工作。每种客户端语言都有特定的Appium客户端构建参数，但最终，他们以JSON数据发送到Appium。
 
 初始化参数（Capability）可以编写在WebDriver测试中或者存放在Appium Server GUI中(Inspector会话)。
 
@@ -15,7 +15,7 @@
     "app": "/path/to/my.app"
 }
 ```
-以上初始化参数表示Appium开始自动化会话在ios 11的iPhone 7模拟器上，使用[XCUITestDriver](/docs/en/drivers/ios-xcuitest.md)，`/path/to/my.app`作为测试app。
+以上初始化参数表示Appium开始自动化会话在ios 11的iPhone 7模拟器上，使用[XCUITestDriver](/docs/cn/drivers/ios-xcuitest.md)，`/path/to/my.app`作为测试app。
 
 Appium支持很多参数，引擎不同参数也不同，然而大多数引擎都有一套标准。以下表格，列出了通用初始化参数，也支持特定引擎。
 
@@ -29,7 +29,7 @@ Appium支持很多参数，引擎不同参数也不同，然而大多数引擎�
 |`platformName`| 使用的手机操作系统 |`iOS`, `Android`, 或者 `FirefoxOS`|
 |`platformVersion`| 手机操作系统的版本 |例如  `7.1`, `4.4`|
 |`deviceName`| 使用的手机或模拟器类型 |`iPhone Simulator`, `iPad Simulator`, `iPhone Retina 4-inch`, `Android Emulator`, `Galaxy S4`, 等等.... 在 iOS 上，使用 Instruments 的 `instruments -s devices` 命令可返回一个有效的设备的列表。在 Andorid 上虽然这个参数目前已被忽略，但仍然需要添加上该参数。|
-|`app`| 本地绝对路径_或_远程 http URL 所指向的一个安装包（`.ipa`(IOS),`.app`(IOS模拟器),`.apk`(安卓),`.apks`(安卓app打包),或 `.zip` 文件）。Appium 将其安装到合适的设备上。请注意，如果您指定了 `appPackage` 和 `appActivity` 参数（见下文），Android 则不需要此参数了。`UiAutomator2`和`XCUITest`允许在没有`app`或`appPackage`的情况下启动会话。该参数也与 `browserName` 不兼容。见 [此文](/docs/en/writing-running-appium/android/android-appbundle.md) 关于 `.apks` 文件。|`/abs/path/to/my.apk` 或 `http://myapp.com/app.ipa`|
+|`app`| 本地绝对路径_或_远程 http URL 所指向的一个安装包（`.ipa`(IOS),`.app`(IOS模拟器),`.apk`(安卓),`.apks`(安卓app打包),或 `.zip` 文件）。Appium 将其安装到合适的设备上。请注意，如果您指定了 `appPackage` 和 `appActivity` 参数（见下文），Android 则不需要此参数了。`UiAutomator2`和`XCUITest`允许在没有`app`或`appPackage`的情况下启动会话。该参数也与 `browserName` 不兼容。见 [此文](/docs/cn/writing-running-appium/android/android-appbundle.md) 关于 `.apks` 文件。|`/abs/path/to/my.apk` 或 `http://myapp.com/app.ipa`|
 |`otherApps`| 在运行测试之前要安装的应用程序或应用程序列表(作为JSON排列)。请注意，`Espresso`的`automationName`和iOS真机不支持。|例如 `"/path/to/app.apk"`, `https://www.example.com/url/to/app.apk`, `["http://appium.github.io/appium/assets/TestApp9.4.app.zip", "/path/to/app-b.app"]`|
 |`browserName`|做自动化时使用的浏览器名字。如果是一个应用则只需填写个空的字符串。|'Safari' 对应 iOS，'Chrome', 'Chromium', 或 'Browser' 则对应 Android|
 |`newCommandTimeout`|用于客户端在退出或者结束 session 之前，Appium 等待客户端发送一条新命令所花费的时间（秒为单位）。|例如  `60`|
@@ -38,10 +38,10 @@ Appium支持很多参数，引擎不同参数也不同，然而大多数引擎�
 |`udid`| 连接真机的唯一设备号|例如  `1ae203187fc012g`|
 |`orientation`| (仅支持模拟器) 模拟器当前的方向|`竖屏` 或 `横屏`|
 |`autoWebview`| 直接转换到 Webview 上下文（context）。默认值为 `false`|`true`, `false`|
-|`noReset`|在当前 session 下不会重置应用的状态。见[此文](/docs/en/writing-running-appium/other/reset-strategies.md)|`true`, `false`|
-|`fullReset`|执行一个完整的重置. 见 [此文](/docs/en/writing-running-appium/other/reset-strategies.md)|`true`, `false`|
-|`eventTimings`|启用或禁用各种Appium-internal事件的时间报告 (例如 每个命令的开始和结束，等等)。 默认值为 `false`。启用, 用 `true`。然后，在查询当前会话的响应上，计时被报告为`events`属性。 见响应结构[此文](/docs/en/advanced-concepts/event-timings.md)|例如 `true`|
-|`enablePerformanceLogging`| (仅Web和webview) 启用Chromedriver(Android)或Safari(ios)的性能日志 (默认值为 `false`)| `true`, `false`|
+|`noReset`|在当前 session 下不会重置应用的状态。见[此文](/docs/cn/writing-running-appium/other/reset-strategies.md)|`true`, `false`|
+|`fullReset`|执行一个完整的重置. 见 [此文](/docs/cn/writing-running-appium/other/reset-strategies.md)|`true`, `false`|
+|`eventTimings`|启用或禁用各种Appium-internal事件的时间报告 (例如 每个命令的开始和结束，等等)。 默认值为 `false`。启用, 用 `true`。然后，在查询当前会话的响应上，计时被报告为`events`属性。 见响应结构[此文](/docs/cn/advanced-concepts/event-timings.md)|例如 `true`|
+|`enablePerformanceLogging`| (仅Web和webview) 启用Chromedriver(Android)或Safari(iOS)的性能日志 (默认值为 `false`)| `true`, `false`|
 |`printPageSourceOnFindFailure`| 当查找操作失败时，打印当前页源文件。 默认值为 `false`|例如 `true`|
 |`clearSystemFiles`| 在会话结束时删除所有生成的文件。 默认值为 `false`| `true`, `false`|
 
@@ -49,19 +49,19 @@ Appium支持很多参数，引擎不同参数也不同，然而大多数引擎�
 
 |键|描述|值|
 |----|-----------|-------|
-|`settings[settingsKey]`| 在会话创建时更新 [更新设置](https://github.com/appium/appium/blob/master/docs/en/advanced-concepts/settings.md). |例如 `'settings[mjpegScalingFactor]': 10`, `'settings[shouldUseCompactResponses]': true`|
+|`settings[settingsKey]`| 在会话创建时更新 [更新设置](https://github.com/appium/appium/blob/master/docs/cn/advanced-concepts/settings.md). |例如 `'settings[mjpegScalingFactor]': 10`, `'settings[shouldUseCompactResponses]': true`|
 
 
 ### Android 独有
 
-这些参数只能在基于android的驱动程序上使用 (例如 [UiAutomator2](/docs/en/drivers/android-uiautomator2.md))。
+这些参数只能在基于Android drivers上使用 (例如 [UiAutomator2](/docs/cn/drivers/android-uiautomator2.md))。
 
 |键|描述|值|
 |----|-----------|-------|
-|`appActivity`|Activity 的名字是指从你的包中所要启动的 Android acticity。他通常需要再前面添加`.` （例如  使用 `.MainActivity` 代替 `MainActivity`）|`MainActivity`, `.Settings`|
-|`appPackage`| 运行的 Android 应用的包名|`com.example.android.myApp`, `com.android.settings`|
+|`appActivity`|Activity 的名字是指从你的包中所要启动的 Android acticity。他通常需要再前面添加`.` （例如  使用 `.MainActivity` 代替 `MainActivity`）。默认情况下，此参数是从软件包manifest中接收的（action: android.intent.action.MAIN , category: android.intent.category.LAUNCHER）|`MainActivity`, `.Settings`|
+|`appPackage`| 运行的 Android 应用的包名。默认情况下，此参数是从软件包manifest中接收的。（@package属性值）|`com.example.android.myApp`, `com.android.settings`|
 |`appWaitActivity`| Activity name/names，逗号分隔，用于你要等待的Android Activity。 ：默认情况下，此参数的值和`appActivity`相同. 如果你的参数中有`appActivity`和`appPackage`，必须设置activity以防和`appActivity`不同。你也可以使用通配符(`*`)。 |`SplashActivity`, `SplashActivity,OtherActivity`, `*`, `*.SplashActivity`|
-|`appWaitPackage`| 用于等待启动的 Android 应用的包|`com.example.android.myApp`, `com.android.settings`|
+|`appWaitPackage`| 用于等待启动的 Android 应用的包。默认情况下，此功能的值与`appActivity`的值相同|`com.example.android.myApp`, `com.android.settings`|
 |`appWaitDuration`| 用于等待 appWaitActivity 启动的超时时间（以毫秒为单位）（默认值为  `20000`)| `30000`|
 |`deviceReadyTimeout`| 用于等待模拟器或真机准备就绪的超时时间 |`5`|
 |`allowTestPackages`| 允许安装测试包(mainfest中`android:testOnly="true"`) 默认值为`false` |`true` 或 `false`|
@@ -71,7 +71,7 @@ Appium支持很多参数，引擎不同参数也不同，然而大多数引擎�
 |`androidInstallTimeout`| 用于等待在设备中安装 apk 所花费的时间（以毫秒为单位）。默认值为 `90000` |例如  `90000`|
 |`androidInstallPath`| 安装前将在其中推送apk的设备上的目录名。默认值为`/data/local/tmp` |例如 `/sdcard/Downloads/`|
 |`adbPort`| 用来连接 ADB 服务器的端口（默认值为 `5037`）|`5037`|
-|`systemPort` | `systemPort` 用于连接 [appium-uiautomator2-server](https://github.com/appium/appium-uiautomator2-server) 或 [appium-espresso-driver](https://github.com/appium/appium-espresso-driver). _appium-uiautomator2-server_通常情况默认值为 `8200` ，可 从`8200`到`8299`选择一个端口。对于_appium-espresso-driver_，默认值为`8300`，端口地址可从`8300`到`8399`中选择一个。当并行运行测试时，必须调整端口以避免冲突。 参见 [并行测试](https://github.com/appium/appium/blob/master/docs/en/advanced-concepts/parallel-tests.md#parallel-android-tests) | 例如 `8201` |
+|`systemPort` | `systemPort` 用于连接 [appium-uiautomator2-server](https://github.com/appium/appium-uiautomator2-server) 或 [appium-espresso-driver](https://github.com/appium/appium-espresso-driver). _appium-uiautomator2-server_通常情况默认值为 `8200` ，可 从`8200`到`8299`选择一个端口。对于_appium-espresso-driver_，默认值为`8300`，端口地址可从`8300`到`8399`中选择一个。当并行运行测试时，必须调整端口以避免冲突。 参见 [并行测试](https://github.com/appium/appium/blob/master/docs/cn/advanced-concepts/parallel-tests.md#parallel-android-tests) | 例如 `8201` |
 |`remoteAdbHost`|可选的远程ADB服务器主机|例如 192.168.0.101|
 |`androidDeviceSocket`|开发工具的 socket 名称。只有在被测应用是一个使用 Chromium 内核的浏览器时才需要。socket 会被浏览器打开，然后 Chromedriver 把它作为开发者工具来进行连接。|例如  `chrome_devtools_remote`|
 |`avd`| 被启动 avd 的名字|例如  `api19`|
@@ -141,7 +141,7 @@ Appium支持很多参数，引擎不同参数也不同，然而大多数引擎�
 
 #### UIAutomator2 独有
 
-这些参数仅在[UiAutomator2驱动程序](/docs/en/drivers/android-uiautomator2.md)上可用
+这些参数仅在[UiAutomator2 Driver](/docs/cn/drivers/android-uiautomator2.md)上可用
 
 |键|描述|值|
 |----|-----------|-------|
@@ -155,7 +155,7 @@ Appium支持很多参数，引擎不同参数也不同，然而大多数引擎�
 
 #### Espresso 独有
 
-这些参数仅在[Espresso Driver]上可用(/docs/en/drivers/android-espresso.md)
+这些参数仅在[Espresso Driver](/docs/cn/drivers/android-espresso.md)上可用
 
 |键|描述|值|
 |----|-----------|-------|
@@ -192,7 +192,7 @@ Appium支持很多参数，引擎不同参数也不同，然而大多数引擎�
 
 ***Version settings***
 
-`toolsVersion` 指定在Espresso服务器构建过程中使用的各种工具和SDK的版本。 默认版本是用于在没有构建配置JSON的情况下构建Espresso驱动程序的版本。
+`toolsVersion` 指定在Espresso服务器构建过程中使用的各种工具和SDK的版本。 默认版本是用于在没有构建配置JSON的情况下构建Espresso driver的版本。
 
 在`toolsVersion`下枚举的模块版本仅用于构建服务器APK。它们不会影响被测应用程序的清单或Espresso服务器清单（仍从被测应用程序的清单生成）。
 
@@ -214,7 +214,7 @@ Appium支持很多参数，引擎不同参数也不同，然而大多数引擎�
 
 ### iOS 独有
 
-这些参数在[XCUITest Driver](/docs/en/drivers/ios-xcuitest.md)和废弃的[UIAutomation Driver](/docs/en/drivers/ios-uiautomation.md)上可用。
+这些参数在[XCUITest Driver](/docs/cn/drivers/ios-xcuitest.md)和废弃的[UIAutomation Driver](/docs/cn/drivers/ios-uiautomation.md)上可用。
 
 |键|描述|值|
 |----|-----------|-------|
@@ -248,7 +248,7 @@ Appium支持很多参数，引擎不同参数也不同，然而大多数引擎�
 |`enableAsyncExecuteFromHttps`| 允许模拟器使用HTTPS在页面上执行异步JavaScript的功能。默认值为 `false` | `true` 或 `false` |
 |`skipLogCapture`|跳过以开始捕获日志，例如崩溃，系统，safari控制台和safari网络。它可能会改善网络性能。与日志相关的命令将不起作用。默认值为 `false`. |`true` 或 `false`|
 |`webkitDebugProxyPort`| (仅支持真机) 使用真机测试，连接`ios-webkit-debug-proxy`的端口。 默认值为 `27753`.|`12021`|
-|`fullContextList` | 返回有关[获取可用上下文](/docs/en/commands/context/get-contexts.md)命令的上下文详细信息。如果启用了此功能，则返回的上下文列表中的每个项目还将另外包含WebView标题，完整URL和捆绑包标识符。 默认值为 `false`. | `true` 或 `false` |
+|`fullContextList` | 返回有关[获取可用上下文](/docs/cn/commands/context/get-contexts.md)命令的上下文详细信息。如果启用了此功能，则返回的上下文列表中的每个项目还将另外包含WebView标题，完整URL和捆绑包标识符。 默认值为 `false`. | `true` 或 `false` |
 
 ### 使用 XCUITest(iOS 独有)
 
