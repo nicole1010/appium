@@ -21,9 +21,8 @@
     }
     ```
 
-    "plug"是快捷方式, 而"my-element-finding-plugin"是引用。在你的测试代码中只需要使用快捷方式，可以是满足JSON键名条件的任意字符串。引用必须是插件的Node模块引用，而且Appium可以通过Node的[模块获取方法](https://medium.freecodecamp.org/requiring-modules-in-node-js-everything-you-need-to-know-e7fbd119be8)来[获取](https://nodejs.org/api/modules.html#modules_require)。
+    "plug"是快捷方式，而"my-element-finding-plugin"是引用。在你的测试代码中只需要使用快捷方式，可以是满足JSON键名条件的任意字符串。引用必须是插件的Node模块引用，而且Appium可以通过Node的[模块获取方法](https://medium.freecodecamp.org/requiring-modules-in-node-js-everything-you-need-to-know-e7fbd119be8)来[获取](https://nodejs.org/api/modules.html#modules_require)。
 
-Once you've started a session with this capability, we say that the plugin (or plugins---multiple plugins are of course supported) are _registered_. You can find an element using a registered plugin by doing two things:
 使用上述capability来启动的session，可以说插件（或者多个插件---多插件当然是支持的）已经被注册上了。你可以通过下面的步骤来使用已注册的插件查找元素：
 
 1. 使用`-custom` 定位策略
