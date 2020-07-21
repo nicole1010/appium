@@ -45,7 +45,7 @@
 }
 ```
 
-有效的platforms列表在[这里](https://www.selenium.dev/downloads/)查看
+有效的platform列表请查看[这里](https://www.selenium.dev/downloads/)
 
 如果没有给出 `url`、`host` 和 `port`，配置会自动指向 `localhost:whatever-port-Appium-started-on`。
 
