@@ -1,10 +1,10 @@
 ## 元素查找插件
 
-从1.9.2版本开始，Appium支持使用插件来查找元素，通过使用 `-custom` 定位策略。 目前此功能为实验性功能。
+从1.9.2版本开始，Appium支持使用插件来辅助查找元素，通过使用 `-custom` 定位策略。 目前此功能为实验性功能。
 
 ### 用法
 
-1. 安装符合Appium元素查找标准的第三方元素查找插件 (标准如下)。 (必须是Node模块，通过NPM安装或者本地安装)。插件可以安装在你系统上的任意位置，不过主要有三种方式：
+1. 安装符合Appium元素查找插件标准的第三方元素查找插件 (参见下文)。 (必须是Node模块，通过NPM安装或者本地安装)。插件可以安装在你系统上的任意位置，不过主要有三种方式：
     * 独立于Appium的目录 (通过在任意文件夹运行 `npm install <plugin>`)
     * 在Appium依赖树下 (通过在Appium根目录下运行`npm install <plugin>`)
     * 在系统上全局安装 (通过运行 `npm install -g <plugin>`)
@@ -23,7 +23,7 @@
 
     "plug"是快捷方式，而"my-element-finding-plugin"是引用。在你的测试代码中只需要使用快捷方式，可以是满足JSON键名条件的任意字符串。引用必须是插件的Node模块引用，而且Appium可以通过Node的[模块获取方法](https://medium.freecodecamp.org/requiring-modules-in-node-js-everything-you-need-to-know-e7fbd119be8)来[获取](https://nodejs.org/api/modules.html#modules_require)。
 
-使用上述capability来启动的session，可以说插件（或者多个插件---多插件当然是支持的）已经被注册上了。你可以通过下面的步骤来使用已注册的插件查找元素：
+一旦使用上述capability来启动一个session，可以说插件（或者多个插件---多插件当然是支持的）已经被注册上了。你可以通过下面的步骤来使用已注册的插件查找元素：
 
 1. 使用`-custom` 定位策略
 2. 在你的选择器前加上`<快捷方式(shortcut)>:`
@@ -36,17 +36,17 @@ driver.findElement('-custom', 'plug:foo');
 
 换句话说，使用`-custom`定位策略，并发送`foo`作为选择器，从而确保Appium知道应该使用`plug`插件来处理查找元素请求。
 
-如果只有一个插件注册了，可以在选择器中省略快捷方式（因为Appium不会混淆你想使用哪个插件）：
+如果只有一个插件注册了，可以在选择器中省略插件快捷方式（因为Appium不会混淆你想使用哪个插件）：
 
 ```js
 driver.findElement('-custom', 'foo');
 ```
 
-当前`-custom`定位策略在所有的Appium客户端中还没有被很好的支持；查看客户端文档获取此策略的正确调用方式。 
+目前并非所有的Appium客户端都很好地支持了`-custom`定位策略；查看客户端文档获取此策略的正确调用方式。 
 
 ### 开发插件
 
-任何人都可以开发Appium元素查找插件。规则如下：
+任何人都可以开发Appium元素查找插件。只需符合下列规则：
 
 * 插件必须是一个Node模块，且有一个名为`find`的导出(export)
 * 当被调用的时候返回元素对象列表（可以为空）
