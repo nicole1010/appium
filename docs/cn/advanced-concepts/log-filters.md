@@ -5,11 +5,11 @@
 
 ### 配置格式
 
-过滤配置必须是包含过滤规则数组的有效JSON文件。每条规则都是具有一组预定义属性的对象。支持如下规则属性：
+过滤配置必须是包含过滤规则数组的有效JSON文件。每条规则都是具有一组预定义属性的对象。支持的规则属性如下：
 
-- `pattern`: 要替换的有效的Javascript正则表达式模式。必须是有效的非空模式。
-- `text`: 要替换的简单的非空提取文本。这个属性或者`pattern` 属性必须至少提供一个。如果两者都提供了， `pattern`优先级更高。 
-- `flags`: 给定pattern 的正则表达式标志。支持的标志与标准的JavaScript正则表达式相同： https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Advanced_searching_with_flags_2。'g' (全局搜索)标志一直是启用的。
+- `pattern`: 要替换的有效Javascript正则表达式模式。必须是有效的非空模式。
+- `text`: 要替换的简单的非空提取文本。`text`属性或者`pattern` 属性必须至少提供一个。如果两者都提供了， `pattern`优先级更高。 
+- `flags`: 给定pattern 的正则表达式标志。支持的标志与标准的JavaScript正则表达式相同： https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Advanced_searching_with_flags_2。 'g' (全局搜索)标志一直是启用的。
 - `replacer`: 要使用的替换值。默认为 `**SECURE**`。也可以是空值。
 
 
