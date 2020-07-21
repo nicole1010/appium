@@ -1,17 +1,17 @@
 ## 元素查找插件
 
-从1.9.2版本开始, Appium支持使用插件来查找元素，通过使用 `-custom` 定位策略。 目前此功能为实验性功能。
+从1.9.2版本开始，Appium支持使用插件来查找元素，通过使用 `-custom` 定位策略。 目前此功能为实验性功能。
 
 ### 用法
 
-1. 安装符合Appium元素查找标准的第三方元素查找插件 (标准如下)。 (必须是Node模块, 通过NPM安装或者本地引用). 插件可以安装在你系统上的任意位置，主要有三种方式：
+1. 安装符合Appium元素查找标准的第三方元素查找插件 (标准如下)。 (必须是Node模块，通过NPM安装或者本地安装)。插件可以安装在你系统上的任意位置，不过主要有三种方式：
     * 独立于Appium的目录 (通过在任意文件夹运行 `npm install <plugin>`)
     * 在Appium依赖树下 (通过在Appium根目录下运行`npm install <plugin>`)
     * 在系统上全局安装 (通过运行 `npm install -g <plugin>`)
 
     (当然，插件本身可能有安装和部署说明，在插件的文档中会有详细说明。)
 
-2. 在你的测试中添加一个新的capability：`customFindModules` . 这个capability必须是一个object，至少有一个键和一个值。键名为 "插件快捷键", 值为"插件说明". 例如:
+2. 在你的测试中添加一个新的capability：`customFindModules`。 这个capability必须是一个对象，至少有一个键和一个值。键名为 "插件快捷键"，值为"插件引用"。 例如：
 
     ```
     {
@@ -21,51 +21,47 @@
     }
     ```
 
-    "plug"是快捷方式, 而"my-element-finding-plugin"是说明.
-    You will use the shortcut in your own test code, so it can be any string
-    which is a valid JSON key. The reference must be a reference to the plugin's
-    Node module, and it must be formatted in such a way that Appium can
-    [require](https://nodejs.org/api/modules.html#modules_require) it using
-    Node's [module resolution](https://medium.freecodecamp.org/requiring-modules-in-node-js-everything-you-need-to-know-e7fbd119be8).
+    "plug"是快捷方式, 而"my-element-finding-plugin"是引用。在你的测试代码中只需要使用快捷方式，可以是满足JSON键名条件的任意字符串。引用必须是插件的Node模块引用，而且Appium可以通过Node的[模块获取方法](https://medium.freecodecamp.org/requiring-modules-in-node-js-everything-you-need-to-know-e7fbd119be8)来[获取](https://nodejs.org/api/modules.html#modules_require)。
 
 Once you've started a session with this capability, we say that the plugin (or plugins---multiple plugins are of course supported) are _registered_. You can find an element using a registered plugin by doing two things:
+使用上述capability来启动的session，可以说插件（或者多个插件---多插件当然是支持的）已经被注册上了。你可以通过下面的步骤来使用已注册的插件查找元素：
 
-1. Using the `-custom` locator strategy
-2. Prefixing your selector with `<shortcut>:`
+1. 使用`-custom` 定位策略
+2. 在你的选择器前加上`<快捷方式(shortcut)>:`
 
-So with the example plugin above, if I wanted to find an element using the selector "foo", it would look like this (in imaginary client code):
+因此，对于上面例子中的插件，如果你想使用"foo"选择器来查找元素，可以这样写（在客户端代码中）：
 
 ```js
 driver.findElement('-custom', 'plug:foo');
 ```
 
-In other words, I'm using the `-custom` locator strategy, and sending in the selector `foo`, making sure Appium knows that it is specifically the `plug` plugin which should handle the find request.
+换句话说，我使用了`-custom`定位策略，并发送`foo`作为选择器，从而确保Appium知道应该使用`plug`插件来处理查找元素请求。
 
-In the case where only one plugin is registered, you can omit the shortcut in the selector (since Appium will not be confused about which plugin you want to use):
+如果只有一个插件注册了，可以在选择器中省略快捷方式（因为Appium不会混淆你想使用哪个插件）：
 
 ```js
 driver.findElement('-custom', 'foo');
 ```
 
-The `-custom` locator strategy is not well supported in all Appium clients at this point; check client documentation for the correct invocation for this strategy.
+当前`-custom`定位策略在所有的Appium客户端中还没有被很好的支持；查看客户端文档获取此策略的正确调用方式。 
 
-### Developing a Plugin
+### 开发插件
 
-Anyone can develop an element finding plugin for Appium. The only rules are as follows:
+任何人都可以开发Appium元素查找插件。规则如下：
 
-* The plugin must be a Node module which has a named export called `find`
-* This method, when called, must return a (possibly empty) array of element objects
+* 插件必须是一个Node模块，且有一个名为`find`的导出(export)
+* 当被调用的时候返回元素对象列表（可以为空）
 
-When Appium calls your `find` method, it will pass the following parameters:
+当Appium调用你的`find`方法时，它会传递下列参数：
 
-* An instance of the `driver` object representing the current session (this would be, for example an instance of `XCUITestDriver`)
-* A logging object which you can use to write logs into the Appium log
-* The selector (a string) the user of your plugin has sent for the purpose of finding the element
-* A boolean value: whether the user is looking for multiple elements (true) or not (false). Note that you must always return an array, regardless of whether the user needs more than one element. This flag is passed in case it is useful for optimizing searches that do not require multiple elements returned.
+* 一个`driver`对象实例，代表当前session（比如`XCUITestDriver`实例）
+* 一个日志对象，可以写入Appium日志
+* 选择器（字符串），用户传入用于使用插件来查找元素
+* 一个布尔值：是否查找多个元素（true）或（false）。注意你必须返回一个数组，不管用户是否要查找多个元素。传递这个标志位是为了针对不需要返回多个元素的查询进行优化。
 
-That's all there is to it! See the list of known plugins below for concrete examples.
+这就是目前的全部内容! 具体示例可查看以下已知插件列表。
 
 
-### List of Known Plugins
+### 已知插件列表
 
 * [Test.ai Classifier](https://github.com/testdotai/appium-classifier-plugin)
