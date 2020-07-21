@@ -17,7 +17,7 @@
 kill -SIGUSR2 &lt;nodePID&gt;
 ```
 
-dump文件会被存放在Appium主脚本执行路径下。文件扩展名为 `.heapsnapshot`，可以在Chrome Inspector中加载来进行分析。 
+dump文件会被存放在Appium主脚本执行路径下。文件扩展名为 `.heapsnapshot`，文件可以在Chrome Inspector中加载来进行分析。 
 
 ### dump文件分析
 
