@@ -17,6 +17,7 @@ Appium 的核心理念之一是，你不应该为了测试而改变被测的应�
 1. 想要停止对 Web 视图的上下文中自动化，并返回到应用程序的原生部分，简单的 [设置上下文](/docs/en/commands/context/set-context.md) (English)即可。将上下文赋值为原生上下文的 id（通常是 `'NATIVE_APP'`）便可离开 Web 上下文，重新使用原生指令。
 
 ### 在会话（session）开启时自动进入 Web 视图上下文（context）
+
 如果你的应用程序在 web 视图中开始，并且你不想在自动化应用程序的原生部分后，再进入 Web 视图，你可以通过设置「[预期功能（desired capability）](/docs/en/writing-running-appium/caps.md)」中的 `autoWebview` 为 `true` 使得 Appium 在会话初始化时自动进入 Web 视图上下文。
 
 
