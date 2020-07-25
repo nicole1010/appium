@@ -211,10 +211,36 @@ js.executeScript("mobile: selectPickerWheelValue", params);
 driver.execute_script('mobile: alert', {'action': 'accept', 'buttonLabel': 'My Cool Alert Button'});
 ```
 
+### mobile: tapWithNumberOfTaps
+
+ 从Appium 1.17.1.以来，对于一个或多个接触点发送一次或多次的点击操作
+ 
+#### 支持参数
+
+ * _element_: 执行一次或多次的内部元素控件ID（作为十六进制哈希字符串
+ * _numberOfTaps_: 点击次数
+ * _numberOfTouches_: 接触点数量
+
+#### 用法示例
+
+
+```ruby
+# Ruby
+e = @driver.find_element :id, 'target element'
+# Taps the element with a single touch point twice
+@driver.execute_script 'mobile: tapWithNumberOfTaps', {element: e.ref, numberOfTaps: 2, numberOfTouches: 1}
+```
+
+#### 参考
+[tapWithNumberOfTaps:numberOfTouches:](https://developer.apple.com/documentation/xctest/xcuielement/1618671-tapwithnumberoftaps)
+
 
 ### 进阶主题
 
+
 查看 [WDA Element Commands API](https://github.com/facebook/WebDriverAgent/blob/master/WebDriverAgentLib/Commands/FBElementCommands.m)
 以获取有关在Facebook WebDriverAgent中实现的手势的信息。
+
+XCTest文档列出了关于[XCUIElement](https://developer.apple.com/documentation/xctest/xcuielement)和[XCUICoordinate](https://developer.apple.com/documentation/xctest/xcuicoordinate)方法所有可用手势的信息。
 
 本文由 [大东](https://testerhome.com/Anikikun) 翻译，由 [lihuazhang](https://github.com/lihuazhang) 校验。
