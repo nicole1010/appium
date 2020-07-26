@@ -61,7 +61,7 @@ IEnumerable<AppiumWebElement> elementsTwo = driver.FindElementsByClassName("Some
 |Name|元素的名称|
 |XPath|使用xpath方法对app XML源文件进行检索 (由于该方法会对系统性能有一定的影响，一般不推荐使用)|
 |Image|通过匹配元素对应的base 64图像文件来进行元素定位|
-|Android UiAutomator (UiAutomator2 适用)|通过使用UI Automator应用接口, 特别是[UiSelector](https://developer.android.com/reference/android/support/test/uiautomator/UiSelector.html)类来进行元素的定位。你可以通过Appium发送一串字符型的Java代码给到服务端，服务端将会在应用环境中去执行该代码，并返回一个或多个元素|
+|Android UiAutomator (UiAutomator2 适用)|通过使用UI Automator应用接口, 特别是使用[UiSelector](https://developer.android.com/reference/android/support/test/uiautomator/UiSelector.html)类来进行元素的定位。你可以通过Appium发送一串字符型的Java代码给到服务端，服务端将会在应用环境中去执行该代码，并返回一个或多个元素|
 |Android View Tag (Espresso 适用)|通过元素的[view tag](https://developer.android.com/reference/android/support/test/espresso/matcher/ViewMatchers.html#withTagValue(org.hamcrest.Matcher%3Cjava.lang.Object%3E))来进行匹配|
 |Android Data Matcher (Espresso 适用)|适用[Espresso DataMatcher](https://developer.android.com/reference/android/support/test/espresso/Espresso#ondata)来进行元素匹配|
 |IOS UIAutomation|当对iOS应用进行自动化时, 可以使用苹果的[Instruments](/docs/cn/drivers/ios-uiautomation.md) 框架来进行元素查找|
