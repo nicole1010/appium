@@ -71,7 +71,7 @@ bool isEqual = elementOne.Equals(elementTwo);
 
 |平台|Driver|平台版本|Appium版本|Driver版本|
 |--------|----------------|------|--------------|--------------|
-| iOS | [XCUITest](/docs/cn/drivers/ios-xcuitest.md) | 无要求 | 无要求 | 无要求 |
+| iOS | [XCUITest](/docs/cn/drivers/ios-xcuitest.md) | 无 | 无 | 无 |
 |  | [UIAutomation](/docs/cn/drivers/ios-uiautomation.md) | 8.0 to 9.3 | 全部 | 全部 |
 | Android | [Espresso](/docs/cn/drivers/android-espresso.md) | ?+ | 1.9.0+ | 全部 |
 |  | [UiAutomator2](/docs/cn/drivers/android-uiautomator2.md) | ?+ | 1.6.0+ | 全部 |
