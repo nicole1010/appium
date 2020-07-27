@@ -15,7 +15,7 @@ Settings有以下特点:
 
 Settings通过下面的API实现：
 
-### [Update Device Settings](/docs/en/commands/session/settings/update-settings.md)
+### [Update Device Settings](/docs/cn/commands/session/settings/update-settings.md)
 
 **POST** /session/:sessionId/appium/settings
 
@@ -28,7 +28,7 @@ Settings通过下面的API实现：
 }
 ```
 
-### [Retrieve Device Settings](/docs/en/commands/session/settings/get-settings.md)
+### [Retrieve Device Settings](/docs/cn/commands/session/settings/get-settings.md)
 
 **GET** /session/:sessionId/appium/settings
 
@@ -46,7 +46,7 @@ Settings通过下面的API实现：
 |`shouldUseCompactResponses`| 查找 element/elements，返回简洁(标准兼容)、快速的响应结果。 默认为 `true` | `false` 或 `true` |
 |`elementResponseAttributes`| 为每个元素返回逗号分隔的字段列表，仅`shouldUseCompactResponses` 为 `false` 时生效. iOS 默认值为 "type,label", Android 默认值为"" | 例如, `"name,text,rect,attribute/name,attribute/value"` |
 
-[图像元素](https://github.com/appium/appium/blob/master/docs/en/advanced-concepts/image-elements.md) 也有图像元素的特定 settings。
+[图像元素](https://github.com/appium/appium/blob/master/docs/cn/advanced-concepts/image-elements.md) 也有图像元素的特定 settings。
 
 ### 仅 Android 支持
 
