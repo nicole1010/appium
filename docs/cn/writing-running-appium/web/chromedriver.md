@@ -1,6 +1,6 @@
 ## Chromedriver
 
-Appium 支持对基于 Chrome 内核的 H5 应用（混合应用）或者网页（Chrome 中的网页或者内建的浏览器中的网页）进行自动化。Appium 管理维护着一个 [Chromedriver](https://sites.google.com/a/chromium.org/chromedriver/) 实例，当需要的时候，会使用代理模式将命令传递给这个实例。这和[最新版本的 Chromedriver](https://chromedriver.storage.googleapis.com/LATEST_RELEASE) 是绑定的。我们可以通过 npm 包来安装[appium-chromedriver](https://www.npmjs.com/package/appium-chromedriver)。 (Github: [appium-chromedriver](https://github.com/appium/appium-chromedriver))。
+Appium 支持对基于 Chrome 内核的 H5 应用（混合应用）或者网页（Chrome 中的网页或者内建的浏览器中的网页）进行自动化。Appium 管理维护着一个 [Chromedriver](https://sites.google.com/a/chromium.org/chromedriver/) 实例，当需要的时候，会使用代理模式将命令传递给这个实例。这和 [最新版本的 Chromedriver](https://chromedriver.storage.googleapis.com/LATEST_RELEASE) 是绑定的。我们可以通过 npm 包来安装 [appium-chromedriver](https://www.npmjs.com/package/appium-chromedriver)。 (Github: [appium-chromedriver](https://github.com/appium/appium-chromedriver))。
 
 不幸的是，随着 Chromedriver 的每次升级，能支持的 Chrome 的最低版本都会升级。这使得旧版本的设备通常无法通过捆绑安装的版本进行自动化。于是在 Appium 的服务端就会有这样的错误日志：
 ```
@@ -13,7 +13,7 @@ Original error: unknown error: Chrome version must be >= 55.0.2883.0
 
 这里有几个方法去让你自定义 Appium 中的 Chromedriver:
 
-#### 在安装服务时
+#### 安装服务时
 
 提供包含实际版本号的 `--chromedriver_version` 命令行参数
 ```
@@ -33,7 +33,7 @@ CHROMEDRIVER_VERSION=2.20 npm install appium
 appium --chromedriver-executable /path/to/my/chromedriver
 ```
 
-#### 当开启一个会话时（手动发现）
+#### 开启一个会话时（手动发现）
 
 通过设置 `chromedriverExecutable` 来对 Chromedriver 版本进行限制。包括已被手动下载并放入到服务器文件系统的 Chromedriver 可执行文件的绝对路径后，你可以在会话功能中指定 Chromedriver 的版本。
 你可以通过点击http://appium.io/docs/en/writing-running-appium/caps/去查看更多的详细内容。
@@ -41,20 +41,20 @@ appium --chromedriver-executable /path/to/my/chromedriver
 
 通过设置 `chromedriverExecutable` 限制以及匹配的 Chromedriver 可执行文件的完整路径，你可以在会话功能中指定Chromedriver版本。而这些可执行文件必须手动下载该文件并将其放入服务器文件系统。
 
-#### 当开启一个会话时（自动发现）
+#### 开启一个会话时（自动发现）
 
 Appium 可以自动检测出目标所需要的 Chrome 引擎的版本。当本地文件系统没有相匹配的 Chromedriver 时，Appium 会自动下载。
 你可以通过阅读 `Automatic discovery of compatible Chromedriver` 章节下的内容去获取更多详细信息。
 
 ### Chromedriver/Chrome 的兼容性
 
-你可以在https://raw.githubusercontent.com/appium/appium-chromedriver/master/config/mapping.json中找到 Chromedriver 版本的列表以及其能支持的 Chrome 最低版本。
+你可以在 https://raw.githubusercontent.com/appium/appium-chromedriver/master/config/mapping.json 中找到 Chromedriver 版本的列表以及其能支持的 Chrome 最低版本。
 
 自版本 *2.46* 后，Google 更改了对 Chromedriver 版本控制的规则，所以现在主要的 Chromedriver 版本对应的主版本的 web 视图/浏览器可以被自动化。若想根据 [版本选择](https://chromedriver.chromium.org/downloads/version-selection) 文档
 
 去查找最低版本的 Chromedriver （低于73）能支持的最低版本浏览器，可以通过获取 Chrome 的源码并查看发布提交并且检查在此文件下 `src/chrome/test/chromedriver/chrome/version.cc` 的 `kMinimumSupportedChromeVersion` 变量。（你可以使用命令 `git log --pretty=format:'%h | %s%d' | grep -i "Release Chromedriver version"` 去找到已经发布的版本 ）
 
-可用的 Chromedriver 版本和发行说明的完整列表在[此处](https://chromedriver.storage.googleapis.com/index.html)。
+可用的 Chromedriver 版本和发行说明的完整列表在 [此处](https://chromedriver.storage.googleapis.com/index.html)。
 
 ### 自动发现兼容性问题的 Chromedriver
 
@@ -71,7 +71,7 @@ Appium 可以自动检测出目标所需要的 Chrome 引擎的版本。当本�
 }
 ```
 从 Appium 1.15.0开始，可以从 Google 官方存储中自动将必要的 chromedriver 下载到 chromedriverExecutableDir 中。脚本将会自动下载支持给定的浏览器/网页视图的最新版本的 chromedriver，在下载（对于下载的文件会通过哈希和进行验证）的同时并且添加到 `chromedriverChromeMappingFile` 映射中。你所需要做的事情就是在启动服务时确保 `chromedriver_autodownload` 是开启的 (如 `appium --allow-insecure chromedriver_autodownload`)。
-您还可以检查[安全](https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/security.md) 文档以获得关于如何控制潜在不安全的服务器特性的详细信息。
+您还可以检查 [安全](https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/security.md) 文档以获得关于如何控制潜在不安全的服务器特性的详细信息。
 
 
 ### 安装遇到的网络问题
@@ -100,8 +100,8 @@ CHROMEDRIVER_CDNURL=http://npm.taobao.org/mirrors/chromedriver npm install appiu
 
 ### W3C 支持
 
-Chromedriver直到第75版才遵循 W3C 标准。当你遇到类似[这样](https://github.com/appium/python-client/issues/234) 的代理命令错误时，请升级你的 Chromedriver 版本。
+Chromedriver直到第75版才遵循 W3C 标准。当你遇到类似 [这样](https://github.com/appium/python-client/issues/234) 的代理命令错误时，请升级你的 Chromedriver 版本。
 旧的 Android 设备不能使用较新的 Chrome 驱动程序。通过使用 the Mobile JSON Wire Protocol 来避免执行测试时的错误。
-尽管主要版本的 *75* W3C 模式可以根据传递的会话功能切换为 JSONWP 模式，但它仍然是 Chromedriver 的默认模式，您可以从[下载文件](https://sites.google.com/a/chromium.org/chromedriver/downloads) 中阅读 Chromedriver 中的关于W3C支持的历史记录。
+尽管主要版本的 *75* W3C 模式可以根据传递的会话功能切换为 JSONWP 模式，但它仍然是 Chromedriver 的默认模式，您可以从 [下载文件](https://sites.google.com/a/chromium.org/chromedriver/downloads) 中阅读 Chromedriver 中的关于W3C支持的历史记录。
 
 本文由 [CrazyForPoor](https://github.com/CrazyForPoor) 翻译。

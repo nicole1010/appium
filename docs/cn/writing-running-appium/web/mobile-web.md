@@ -173,9 +173,9 @@ class ContextTests extends PHPUnit_Extensions_AppiumTestCase
 
 *确保 Chrome 浏览器已经安装在你的真实或虚拟的安卓设备上。
 *需要安装好ChromeDriver（来自 Appium 的默认版本）
-	并且配置好用于自动化设备上可用的特定版本的 Chrome 。点击[这里](/docs/en/writing-running-appium/web/chromedriver.md) 去了解更多关于兼容性的详细信息。
+	并且配置好用于自动化设备上可用的特定版本的 Chrome 。点击 [这里](/docs/en/writing-running-appium/web/chromedriver.md) 去了解更多关于兼容性的详细信息。
 
-然后使用[desired capabilties](/docs/cn/writing-running-appium/caps.md) 像下面的例子去 Chrome 浏览器上运行你的测试。
+然后使用 [desired capabilties](/docs/cn/writing-running-appium/caps.md) 像下面的例子去 Chrome 浏览器上运行你的测试。
 
 ```javascript
 // javascript
@@ -238,7 +238,7 @@ capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
 
 #### Chromedriver 的障碍排除
 
-如果你的测试目标要求更新的 ChromeDriver 版本时，ChromeDriver 的这一特性[chromedriver_自动下载](/docs/cn/writing-running-appium/web/chromedriver.md#automatic-discovery-of-compatible-chromedriver) 会帮到你。这一特性在 Appium 1.15.0的安全性选项中已经能够使用。你可以通过点击文件的链接去学习如何使用它。
+如果你的测试目标要求更新的 ChromeDriver 版本时，ChromeDriver 的这一特性 [chromedriver_自动下载](/docs/cn/writing-running-appium/web/chromedriver.md#automatic-discovery-of-compatible-chromedriver) 会帮到你。这一特性在 Appium 1.15.0的安全性选项中已经能够使用。你可以通过点击文件的链接去学习如何使用它。
 当你需要特定版本的 ChromeDriver 时，`chromedriverExecutableDir` 这一功能能帮到你。
 
 截止 Chrome Version 33，设备不再需要被 root。在这之前，设备需要被 root，因为 ChromeDriver 设置启动 Chrome 的命令行参数需要在 `/data/local` 目录的写入权限。
