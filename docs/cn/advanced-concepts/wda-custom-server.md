@@ -287,6 +287,6 @@ public class WDAServer {
  * 模拟器ID可以从 `xcrun simctl list` 输出中解析
  * *UrlChecker* 类是从 org.openqa.selenium.net 包导入的
 
- 
 本文由 [simple](https://testerhome.com/simple) 翻译，由 [lihuazhang](https://github.com/lihuazhang) 校验。
+
 本文由 [nicole1010](https://github.com/nicole1010) 翻译，由 [lihuazhang](https://github.com/lihuazhang) 校验。

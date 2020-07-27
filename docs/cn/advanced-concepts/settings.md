@@ -103,4 +103,5 @@ Settings通过下面的API实现：
 | `screenshotOrientation` | 在 iOS 上调整截屏方向，Appium 尝试返回截图，同时使用内部方法调整截图方向，但有时候并不生效（尤其是横屏时）。实际截屏方向受多个因素影响，如 OS 版本， model 版本，以及当前设备是真机还是模拟器。这个设置允许强制设置图片方向，默认值是 `auto`.| `auto`, `portrait`, `portraitUpsideDown`, `landscapeRight`, `landscapeLeft` | 1.17.0+ |
 
 本文由 [ghost62184](https://github.com/ghost62184) 翻译， 由 [chenhengjie123](https://github.com/chenhengjie123) 校验
+
 本文由 [nicole1010](https://github.com/nicole1010) 翻译，由 [lihuazhang](https://github.com/lihuazhang) 校验。

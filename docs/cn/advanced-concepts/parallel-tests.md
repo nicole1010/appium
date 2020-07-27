@@ -37,4 +37,5 @@ Xcode9 以来，Appium 支持在真机和模拟器上进行并发测试。可以
 使用 `BUILD_ID=dontKillMe` 来防止这个问题发生。
 
 本文由 [thanksdanny](https://testerhome.com/thanksdanny) 翻译，由 [lihuazhang](https://github.com/lihuazhang) 校验。
+
 本文由 [nicole1010](https://github.com/nicole1010) 翻译，由 [lihuazhang](https://github.com/lihuazhang) 校验。
