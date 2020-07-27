@@ -29,7 +29,7 @@ Xcode9 以来，Appium 支持在真机和模拟器上进行并发测试。可以
 - `wdaLocalPort` 每个并发 session 必须设置唯一的端口号，默认的端口号是 8100。
 - `derivedDataPath` 需要为每个 driver 实例设置唯一的导出数据根路径，这样有助于避免冲突，以及加快并发执行速度。
 
-### Troubleshooting-疑难解答？？
+### 故障排查
 
 在 Jenkins 上运行时，当在相同机器上运行多个并发测试 jobs时， 需要注意[ProcessTreeKiller](https://wiki.jenkins.io/display/JENKINS/ProcessTreeKiller) 。
 如果在一个测试 job里使用大量模拟器，当第一个测试结束，Jenkins 可能会 kill 掉所有模拟器，这会导致 剩下的测试 jobs 报错！
