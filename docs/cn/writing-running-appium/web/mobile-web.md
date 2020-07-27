@@ -5,7 +5,7 @@
 
 ### iOS 移动 web 自动化
 
-Appium 可以在真实或模拟的 iOS 设备上的 Safari 浏览器上进行自动化。通过将 `browserName` [desired capabilty](/docs/cn/writing-running-appium/caps.md) 的值设置为 `"Safari"` 同时将 `app` 功能留空。
+Appium 可以在真实或模拟的 iOS 设备上的 Safari 浏览器上进行自动化。通过将 [desired capabilty](/docs/cn/writing-running-appium/caps.md) 中的 `browserName` 的值设置为 `"Safari"` 同时将 `app` 功能留空。
 
 在尝试运行 Appium 之前，你**必须**要先在设备上运行 Safari ，以确保相关参数已经被正确的设置。
 

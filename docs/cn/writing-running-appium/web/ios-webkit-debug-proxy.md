@@ -40,7 +40,7 @@ $ sudo make install
 > ios_webkit_debug_proxy -c 0e4b2f612b65e98c1d07d22ee08678130d345429:27753 -d
 ```
 
-你也可以把 desired capability 中一个名为 `startIWDP` 的选项设置为 `true` (https://github.com/appium/appium/blob/master/docs/cn/writing-running-appium/caps.md)。 Appium 会开启一个子进程运行上述命令并设置 udid ，所以你不再需要自己运行 ios_webkit_debug_proxy 。Appium 会监控 ios-webkit-debug-proxy，一旦崩溃就会重启。
+你也可以把 desired capability 中一个名为 `startIWDP` 的选项设置为 `true` (https://github.com/appium/appium/blob/master/docs/cn/writing-running-appium/caps.md) 。 Appium 会开启一个子进程运行上述命令并设置 udid ，所以你不再需要自己运行 ios_webkit_debug_proxy 。Appium 会监控 ios-webkit-debug-proxy，一旦崩溃就会重启。
 
 ``` 
 // desired capabilities 示例

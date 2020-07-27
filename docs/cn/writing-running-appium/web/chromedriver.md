@@ -36,7 +36,7 @@ appium --chromedriver-executable /path/to/my/chromedriver
 #### 开启一个会话时（手动发现）
 
 通过设置 `chromedriverExecutable` 来对 Chromedriver 版本进行限制。包括已被手动下载并放入到服务器文件系统的 Chromedriver 可执行文件的绝对路径后，你可以在会话功能中指定 Chromedriver 的版本。
-你可以通过点击http://appium.io/docs/en/writing-running-appium/caps/去查看更多的详细内容。
+你可以通过点击 http://appium.io/docs/en/writing-running-appium/caps/ 去查看更多的详细内容。
 
 
 通过设置 `chromedriverExecutable` 限制以及匹配的 Chromedriver 可执行文件的完整路径，你可以在会话功能中指定Chromedriver版本。而这些可执行文件必须手动下载该文件并将其放入服务器文件系统。
