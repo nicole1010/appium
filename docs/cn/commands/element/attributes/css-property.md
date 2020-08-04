@@ -92,7 +92,7 @@ string cssProperty = element.GetCssValue("style");
 |property_name|CSS特性名称|
 
 ### JSON 参数
-None
+无
 
 ### 响应
 css属性的值("字符串")
