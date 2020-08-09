@@ -133,5 +133,5 @@ try {
 
 #### 找不到查找的元素:
 
-1. 是否需要使用请准swipe而不是scroll方法
+1. 尝试使用精准swipe而不是scroll方法
 2. 有时当查找的元素只出现一部分的话，tap动作将可能失败。此时，使用简单部分元素滑动(Simple-partial-element)——就像在简单半屏例子种演示的那样——中的策略重试一下。同时执行部分元素滑动(partial element swipe)操作后，再重试一下tap动作。
