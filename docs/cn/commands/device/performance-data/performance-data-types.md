@@ -85,7 +85,7 @@ get_performance_data_types
 
 |名称|描述|
 |----|-----------|
-|session_id|将指令发往的会话（session）的ID|
+|session_id|将命令路由到服务器的sessionID|
 
 ### JSON 参数
 
