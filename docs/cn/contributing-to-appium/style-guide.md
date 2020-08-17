@@ -189,5 +189,4 @@ driver
     .should.be.rejectedWith('status: 13');
 ```
 
-本文由 [wanyukang](https://github.com/wanyukang) 翻译，由 [oscarxie](https://github.com/oscarxie) 校验。
-本文由 [nicole1010](https://github.com/nicole1010) 翻译
+本文由 [nicole1010](https://github.com/nicole1010) 翻译，由 [lihuazhang](https://github.com/lihuazhang) 校验。

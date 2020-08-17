@@ -49,7 +49,7 @@ appium-doctor --dev
 npm install
 ```
 
-当从 GitHub 中拉新代码时，如果 `package.json` 有更改，需要删除旧的依赖关系并重新运行 `npm install`：
+当从 GitHub 中拉新代码时，如果`package.json`有更改，需要删除旧的依赖关系并重新运行`npm install`：
 
 ```
 rm -rf node_modules && rm -rf package-lock.json && npm install
@@ -65,12 +65,12 @@ node .
 
 #### 鼓捣 iOS 上的Appium
 
-为了避免启动iOS应用程序时可能出现的安全对话框，您必须通过以下两种方式之一修改 `/etc/authorization` 文件：
+为了避免启动iOS应用程序时可能出现的安全对话框，您必须通过以下两种方式之一修改`/etc/authorization`文件：
 
-1. 手动修改 `/etc/authorization` 文件中的 `<key>system.privilege.taskport</key>` 下的 `<allow-root>`的值为 `<true/>`。
-2. 运行以下命令，为您自动修改 `/etc/authorization` 文件：
+1. 手动修改`/etc/authorization`文件中的`<key>system.privilege.taskport</key>`下的`<allow-root>`的值为`<true/>`。
+2. 运行以下命令，为您自动修改`/etc/authorization`文件：
 
-    ```center
+   ```center
     sudo npm run authorize-ios
 	```
 
@@ -80,29 +80,29 @@ node .
 rm -rf node_modules && rm -rf package-lock.json && npm install
 ```
 
-现在你的 Appium 实例已经准备好了。运行 `node .` 以启动Appium服务器。
+现在你的 Appium 实例已经准备好了。运行`node .`以启动Appium服务器。
 
 #### 鼓捣 Android 上的Appium
 
-确保已安装 `ant`、 `maven`、 `adb` 且已添加到 PATH 环境变量，还需要安装 android-19及以上版本的 sdk。在 Appium 本地仓库打开命令行，使用以下命令安装/运行以下包：
+确保已安装`ant`、`maven`、`adb`且已添加到 PATH 环境变量，还需要安装 android-19及以上版本的 sdk。在 Appium 本地仓库打开命令行，使用以下命令安装/运行以下包：
 
-通过运行以下命令配置Appium：
+通过运行以下命令配置 Appium：
 
 ```
 rm -rf node_modules && rm -rf package-lock.json && npm install
 ```
 
-确保您只有一个 Android 模拟器或设备运行，例如，通过在另一个进程中运行此命令（假设 `emulator` 命令在您的路径上）：
+确保您只有一个 Android 模拟器或设备运行，例如，通过在另一个进程中运行此命令（假设`emulator`命令在您的路径上）：
 
 ```center
 emulator -avd <MyAvdName>
 ```
 
-现在，您可以通过 `node .` 运行Appium服务器了。
+现在，您可以通过`node .`运行Appium服务器了。
 
 #### 确保你的代码是最新的
 
-由于Appium使用某些软件包的开发版本，因此通常需要安装新 `npm` 软件包或更新各种软件。运行 `npm install` 将更新所需的一切。当 Appium 升级版本时，您还需要执行此操作。在运行 `npm install` 之前，建议先删除 `node_modules` 目录中的所有旧依赖项：
+由于Appium使用某些软件包的开发版本，因此通常需要安装新`npm`软件包或更新各种软件。运行`npm install`将更新所需的一切。当 Appium 升级版本时，您还需要执行此操作。在运行`npm install`之前，建议先删除`node_modules`目录中的所有旧依赖项：
 
 ```
 rm -rf node_modules && rm -rf package-lock.json && npm install
@@ -112,30 +112,30 @@ rm -rf node_modules && rm -rf package-lock.json && npm install
 
 Appium 由大量不同的包组成，虽然可以在单个包中运行，但通常情况下，无论是修复bug还是添加新功能，都需要同时运行在在多个包之上。
 
-运行 `npm install` 安装的都是已发布的依赖，而有些情况下，我们需要连接本地开发版本的包。
+运行`npm install`安装的都是已发布的依赖，而有些情况下，我们需要连接本地开发版本的包。
 
-当包 `A` 依赖 包 `B`，以下步骤可以连接这两个包：
+当包`A`依赖包`B`，以下步骤可以连接这两个包：
 
-1. 打开一个终端，进入包 `B`
-    ```
+1. 打开一个终端，进入包`B`
+   ```
     cd B
-    ```
-2. 使用 [NPM link](https://docs.npmjs.com/cli/link) 为包 `B`，创建符号链接（symbolic link）
-    ```
+   ```
+2. 使用 [NPM link](https://docs.npmjs.com/cli/link) 为包`B`，创建符号链接（symbolic link）
+   ```
     npm link
-    ```
-3. 打开另一个终端，进入包 `A`
-    ```
+   ```
+3. 打开另一个终端，进入包`A`
+   ```
     cd A
-    ```
-4. 使用 [NPM link](https://docs.npmjs.com/cli/link) 连接依赖包 `B` 的开发版本
-    ```
+   ```
+4. 使用 [NPM link](https://docs.npmjs.com/cli/link) 连接依赖包`B`的开发版本
+   ```
     npm link B
-    ```
+   ```
 
-这样 `A` 使用的 `B`的版本，就是你本地的开发版本了。
+这样`A`使用的`B`的版本，就是你本地的开发版本了。
 但是这样的 JavaScript 更改，只在被转换（transpiled）时生效。
-如果你准备从包 `A` 开始测试，需要在包 `B` 目录下运行 `npm run build`.
+如果你准备从包`A`开始测试，需要在包`B`目录下运行`npm run build`.
 
 
 ### 运行测试
@@ -149,7 +149,7 @@ general](/docs/cn/writing-running-appium/running-tests.md) 的文档，确保您
 npm run test
 ```
 
-您可以用以下命令，对所有受支持的平台运行功能测试（确保在另一个窗口中运行Appium `node .`）：
+您可以用以下命令，对所有受支持的平台运行功能测试（确保在另一个窗口中运行Appium`node .`）：
 
 ```center
 npm run e2e-test
@@ -160,21 +160,20 @@ npm run e2e-test
 本项目在[VSCode](https://code.visualstudio.com/)中运行 NodeJS 代码，有多个启动配置项：
 
 * _Debug_: debug 模式运行 Appium 服务，这样就能在 VSCode 源文件里设置断点了
-* _Attach Debug_: 连接到当前运行中的 Appium 服务
+* _Attach Debug_:连接到当前运行中的 Appium 服务
   * 用法示例
-    * 根路径运行 `node --inspect-brk . --port 5555`
-    * 运行 `attach debug`
+    * 根路径运行`node --inspect-brk . --port 5555`
+    * 运行`attach debug`
     * 在 VSCode 里设置断点
-* _Test All_: 运行 `test/` 路径下的所有 mocha tests, 测试代码、源码里都可以设置断点
-* _Test Current File_: 只运行当前的选中的 mocha 文件. 如果不是有效的mocha test，就会运行失败。
+* _Test All_:运行`test/`路径下的所有 mocha tests, 测试代码、源码里都可以设置断点
+* _Test Current File_:只运行当前的选中的 mocha 文件。如果不是有效的mocha test，就会运行失败。
 
 （翻译说明：Mocha 是一个 JS 测试框架）
 
 ### 提交代码
 
-每个 Appium 包都会配置一个检查（pre-commit）hook，在提交完成前，这个 hook 会运行 [linter](https://eslint.org/) 和 单元测试，这个过程中出现任何错误，都会阻止提交。
+每个 Appium 包都会配置一个检查（pre-commit）hook，在提交完成前，这个 hook 会运行 [linter](https://eslint.org/) 和单元测试，这个过程中出现任何错误，都会阻止本次提交。
 
 只要往 [GitHub](https://github.com/)上的 Appium 仓库，提交代码以及创建 [pull request](https://help.github.com/articles/about-pull-requests/)，Appium 构建系统就会执行所有功能测试。
 
 本文由 [校长](https://testerhome.com/xushizhao) 翻译，由 [lihuazhang](https://github.com/lihuazhang) 校验。
-本文由 [nicole1010](https://github.com/nicole1010) 翻译

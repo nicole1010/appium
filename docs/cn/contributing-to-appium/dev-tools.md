@@ -11,7 +11,7 @@
 | npm run watch    | 代码更改后自动执行 `test` 命令                             |
 | npm run mocha    | 执行 `mocha` 测试                                        |
 
-此外，Appium 主包有个 `npm generate-docs` 任务，可以生成命令文档。
+此外，Appium 主包有个`npm generate-docs`任务，可以生成命令文档。
 
 （翻译说明，以上命令均可在 package.json 文件中查看：
 "build": "gulp transpile",
@@ -20,4 +20,4 @@
 "watch": "gulp watch",
 "generate-docs": "node ./build/commands-yml/parse.js"）
 
-本文由 [nicole1010](https://github.com/nicole1010) 翻译
+本文由 [nicole1010](https://github.com/nicole1010) 翻译，由 [lihuazhang](https://github.com/lihuazhang) 校验。
