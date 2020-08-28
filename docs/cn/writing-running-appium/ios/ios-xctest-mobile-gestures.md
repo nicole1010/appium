@@ -213,11 +213,11 @@ driver.execute_script('mobile: alert', {'action': 'accept', 'buttonLabel': 'My C
 
 ### mobile: tapWithNumberOfTaps
 
- 从Appium 1.17.1.以来，对于一个或多个接触点发送一次或多次的点击操作
+ 从Appium 1.17.1.开始，对单个或者多个接触点，点击一次或者多次。
  
 #### 支持参数
 
- * _element_: 执行一次或多次的内部元素控件ID（作为十六进制哈希字符串
+ * _element_: 要执行一次或多次点击的内部元素标识符（用十六进制字符串表示）
  * _numberOfTaps_: 点击次数
  * _numberOfTouches_: 接触点数量
 
