@@ -1,16 +1,17 @@
 ## 新手入门
 
-本篇文章将会带你了解并运行一个简单的appium案例以及向你介绍一些关于appium的基本概念。想要了解更多关于appium的详细信息，请查看[相关介绍](/docs/cn/about-appium/intro.md)。
+本文将会带你了解并运行一个简单的appium案例以及向你介绍一些关于appium的基本概念。想要了解更多关于appium的详细信息，请查看[相关介绍](/docs/cn/about-appium/intro.md)。
 
 ### 安装appium
 
-Appium可以通过以下两种方式中的任意一种进行安装：使用[NPM](https://npmjs.com)命令或者是下载[appium客户端](https://github.com/appium/appium-desktop)
-，一种基于桌面图形化的方式来登录appium服务。
+Appium可以通过以下两种方式进行安装：使用[NPM](https://npmjs.com)命令或者是下载[appium客户端](https://github.com/appium/appium-desktop)
+，一种基于桌面图形化的方式来启动appium服务。
 
 #### 使用NPM命令进行appium安装
 
-如果你想使用`npm install`命令安装appium，或者是改造appium，亦或是提交代码为appium做贡献，你都需要安装[Node.js和NPM](http://nodejs.org)（使用[nvm](https://github.com/creationix/nvm),[n](https://github.com/visionmedia/n)命令，或者是`brew install node`命令来安装node.js。请确认你没有使用`sudo`命令进行Node或者Appium的安装，否则运行时会出现问题）尽管Appium支持Node10及以上版本，我们仍然推荐使用最新稳定版。
-事实上Appium的安装直接使用如下命令即可：
+如果你想使用`npm install`命令安装appium，或者是改造appium，或者提交代码为appium做贡献，你都需要安装[Node.js和NPM](http://nodejs.org)（使用[nvm](https://github.com/creationix/nvm),[n](https://github.com/visionmedia/n)命令，或者是`brew install node`命令来安装node.js。请确认你没有使用`sudo`命令进行Node或者Appium的安装，否则运行时会出现问题）尽管Appium支持Node10及以上版本，我们仍然推荐使用最新稳定版。
+
+Appium的安装直接使用如下命令即可：
 ```
 npm install -g appium
 ```
@@ -19,9 +20,9 @@ npm install -g appium
 
 可直接从[版本发行页面](https://github.com/appium/appium-desktop/releases)点击下载最新版的Appium桌面版。
 
-### 不同系统的driver安装
+### 指定系统的 driver安装
 
-你有可能会使用Appium来进行不同应用的自动化操作，例如iOS应用或者是Android应用。而Appium“driver”则提供了对于不同平台的自动化操作。下面列举的driver类型可以使你在不同的平台都能使用自动化技术，并且每种driver都有他们特定的安装要求。对于某个平台来说，driver的安装要求与在该平台上进行app开发所需的环境要求大多一致。例如，如果你想使用任意一种Android driver来进行Android应用的自动化操作，那么你所使用的的系统中应该配置好Android SDK.
+你可能想要用Appium来进行不同应用的自动化操作，例如iOS应用或者是Android应用，Appium driver 提供了对于不同平台的自动化操作。下面列举的driver类型可以使你在不同的平台都能使用自动化技术，并且每种driver都有他们特定的安装要求。对于某个平台来说，driver的安装要求与在该平台上进行app开发所需的环境要求大多一致。例如，如果你想使用任意一种Android driver来进行Android应用的自动化操作，那么你所使用的的系统中应该配置好Android SDK.
 
 在某些情况下，对于你想进行自动化操作的平台，请确认你查看过对应driver的文档，以便能正确进行安装：
 - [XCUITest driver](/docs/cn/drivers/ios-xcuitest.md) (iOS和tvOS应用使用)
@@ -30,13 +31,13 @@ npm install -g appium
 - [Windows driver](/docs/cn/drivers/windows.md) (Windows操作系统桌面应用使用)
 - [Mac driver](/docs/cn/drivers/mac.md) (Mac操作系统桌面应用使用)
 
-### 检查安装
+### 验证安装
 
 你可以使用`appium-doctor`命令来确认安装Appium所需的依赖是否都已满足要求。使用`npm install -g appium-doctor`命令来进行上述命令的安装，安装完成后，运行`appium-doctor`命令确认Appium所需的依赖都已正确安装，该命令还支持与`--ios`或者 `--android`选项一起搭配使用。
 
-### Appium客户端
+### Appium 客户端
 
-即使当上述所需条件都已满足，Appium也只是一个HTTP服务器而已。它需要与客户端进行连接，并由客户端发出指令告诉它应该开启哪种会话，还有一旦会话启动成功后该进行哪些自动化操作。这就意味着你永远不能只单独使用Appium本身，你需要将它与某一个客户端一起搭配使用（或者，如果你具有探索精神，可以使用cURL的方式进行尝试）
+当上述所需条件都已满足，Appium 其实是一个HTTP服务器而已。它需要与客户端进行连接，并由客户端发出指令告诉它应该开启哪种会话，还有一旦会话启动成功后该进行哪些自动化操作。这就意味着你永远不能只单独使用Appium本身，你需要将它与某一个客户端一起搭配使用（或者，如果你具有探索精神，可以使用cURL的方式进行尝试）
 
 幸运的是，Appium与[Selenium](http://www.seleniumhq.org/)使用同一种协议，称为WebDriver协议。也许在你使用的系统中已经安装了多个客户端，但你只需要搭配任意一种标准Selenium客户端便足够运行Appium进行多种操作，特别是当你使用Appium来进行移动平台上的浏览器测试的时候。
 
@@ -67,7 +68,7 @@ Appium启动成功后将会向你展示一段简短的欢迎消息，其中包�
 - 我们假设你已经配置好并能成功运行Android8.0模拟器（在低版本上运行该示例时，修改对应的版本号即可）
 - 我们假设你已经将所需的[测试APK](https://github.com/appium/appium/raw/master/sample-code/apps/ApiDemos-debug.apk)下载到本地系统
 
-#### 开启Appium客户端
+#### 配置 Appium 客户端
 
 在本次示例中，我们将使用[Webdriver.io](http://webdriver.io)作为我们的Appium客户端。首先为该示例代码创建一个目录，然后运行下面的命令：
 
@@ -88,7 +89,7 @@ npm install webdriverio
 const wdio = require("webdriverio");
 ```
 
-接下来我们需要做的则是启动一个Appium会话。通过定义一系列的服务选项和参数配置，并使用`wdio.remote()`方法来进行调用。这里所讲的参数配置其实仅仅是一些在会话初始化之后，发送至Appium服务端，告诉Appium我们想要进行哪些自动化操作的键值对。
+接下来我们需要做的是启动一个Appium会话。通过定义一系列的服务选项和参数配置，并使用`wdio.remote()`方法来进行调用。这里所讲的参数配置其实仅仅是一些在会话初始化之后，发送至Appium服务端，告诉Appium我们想要进行哪些自动化操作的键值对。
 对于任意Appium driver来说，至少应该包含以下这几个配置：
 - `platformName`: 需要进行自动化操作的平台名称 
 - `platformVersion`: 需要进行自动化操作的平台版本
@@ -127,7 +128,7 @@ main();
 
 #### 运行测试命令
 
-上一个步骤中我们已经将Appium的端口进行了设置也根据自己的需求进行了参数配置（但是不要忘记将代码中的APK路径更换为自己系统中的实际路径）
+上一个步骤中我们已经将Appium的端口进行了设置，也根据自己的需求进行了参数配置（但是不要忘记将代码中的APK路径更换为自己系统中的实际路径）
 并且使用`webdriverio`将上述配置进行了注册，现在我们已经创建好了能与Appium服务器进行连接的客户端对象。至此，我们可以继续后续的启动会话，
 执行一些测试命令和关闭会话等操作。在本次测试中，我们将会执行一个简单的文本框输入操作并检查输入的文本是否正确。
 
@@ -190,7 +191,7 @@ node index.js
 
 ### 接下来的内容
 
-上述内容中我们只是接触到了一些关于Appium方面的皮毛。查看下面所示文档更好的帮助你进行Appium的使用
+上述内容中我们只是接触到了一些Appium的皮毛。查看下面所示文档更好的帮助你进行Appium的使用
 
 - [命令相关](https://appium.io/docs/cn/commands/status/) - 学习可用的命令，如何将它们与特定的客户端进行使用等...
 - [代码示范目录](https://github.com/appium/appium/tree/master/sample-code) 可查看多种代码示例
